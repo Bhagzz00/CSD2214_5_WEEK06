@@ -54,12 +54,63 @@
         }
         function finalValidate() {
             var count = 0;
-
+            for (i = 0; i < 6; i++) {
+                var div = divs[i];
+                if (document.getElementById(div).innerHTML == "ok.")
+                    count = count + 1;
+            }
+            if (count == 6)
+                document.getElementById("errfinal").innerHTML = "all the data you entered is correct...";
         }
-        
     </script>
+
+
 </head>
 <body>
-    <div>Content goes here.</div>
+    <table id="table1">
+        <tr>
+            <td>first name;</td>
+            <td><input type="text" id="first" onkeyup="validate();"/></td>
+            <td><div id="errfirst"></div></td>
+
+        </tr>
+        <tr>
+            <td>last name;</td>
+            <td><input"text" id="last" onkeyup="validate();"/></td>
+            <td><div id="errlast"></div></td>
+
+        </tr>
+        <tr>
+            <td>email;</td>
+            <td><input type="text" id="email" onkeyup="validate();"/></td>
+            <td><div id="erremail"></div></td>
+
+        </tr>
+        <tr>
+            <td>user id;</td>
+            <td><input type="text" id="user id" onkeyup="validate();"/></td>
+            <td><div id="erruserid"></div></td>
+
+        </tr>
+        <tr>
+            <td>password;</td>
+            <td><input type="text" id="password" onkeyup="validate();"/></td>
+            <td><div id="errpassword"></div></td>
+
+        </tr>
+        <tr>
+            <td>confirm password;</td>
+            <td><input type="text" id="confirm" onkeyup="validate();"/></td>
+            <td><div id="errconfirm"></div></td>
+
+        </tr>
+        <tr>
+
+            <td><input type="button" id="create"  value ="create" onclick="validate();finalValidate"/></td>
+            <td><div id="errfinal"></div></td>
+
+        </tr>
+
+    </table>
 </body>
 </html>
