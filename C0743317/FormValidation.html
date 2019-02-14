@@ -17,16 +17,16 @@
             inputs[1] = document.getElementById('last').value;
             inputs[2] = document.getElementById('email').value;
             inputs[3] = document.getElementById('uid').value;
-            inputs[4] = document.getElementById('pasword').value;
+            inputs[4] = document.getElementById('password').value;
             inputs[5] = document.getElementById('confirm').value;
             var errors = new Array();
 
-            errore[0] = "<span style='color:red;>Please enter tour first Name! </span>";
-            errore[1] = "<span style='color:red;>Please enter tour last Name! </span>";
-            errore[2] = "<span style='color:red;>Please enter tour email! </span>";
-            errore[3] = "<span style='color:red;>Please enter tour user id </span>";
-            errore[4] = "<span style='color:red;>Please enter tour password! </span>";
-            errore[5] = "<span style='color:red;>Please confir your password! </span>";
+            errors[0] = "<span style='color:red;>Please enter tour first Name! </span>";
+            errors[1] = "<span style='color:red;>Please enter tour last Name! </span>";
+            errors[2] = "<span style='color:red;>Please enter tour email! </span>";
+            errors[3] = "<span style='color:red;>Please enter tour user id </span>";
+            errors[4] = "<span style='color:red;>Please enter tour password! </span>";
+            errors[5] = "<span style='color:red;>Please confir your password! </span>";
 
             for (i in inputs) {
                 var errMessage = errors[i];
@@ -34,9 +34,11 @@
                 if (inputs[i] == "")
                     document.getElementById(div).innerHTML = errMessage;
                 else if (i == 2) {
-                    var atpod = inputs[i].indexOf("@");
-                    var dotpos = inputs[i].lastindexOf(".");
-                    if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 > = inputs[i].length)
+                    var atpos = inputs[i].indexOf("@");
+                    var dotpos = inputs[i].lastIndexOf(".");
+                    if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= inputs[i].length)
+                        document.getElementById('errEmail').innerHTML = "<span style='color:red'>Enter a valid email </span>";
+                    else
                     document.getElementById(div).innerHTML = "OK!";
 
                 }
@@ -44,7 +46,7 @@
                     var first = document.getElementById('password').value;
                     var second = document.getElementById('confirm').value;
                     if (second != first)
-                        document.getElementById('errConfirm').innerHTML = "<span style='color:red'>Your password does not match! </span>;
+                        document.getElementById('errConfirm').innerHTML = "<span style='color:red'>Your password does not match! </span>";
                     else
                         document.getElementById(div).innerHTML = "OK!";
                 }
@@ -60,7 +62,7 @@
                     count = count + 1;
             }
             if (count == 6)
-                document.getElementById("errfinal").innerHTML = "all the data you entered is correct...";
+                document.getElementById("errFinal").innerHTML = "all the data you entered is correct...";
         }
     </script>
 
@@ -71,43 +73,43 @@
         <tr>
             <td>first name;</td>
             <td><input type="text" id="first" onkeyup="validate();"/></td>
-            <td><div id="errfirst"></div></td>
+            <td><div id="errFirst"></div></td>
 
         </tr>
         <tr>
             <td>last name;</td>
-            <td><input"text" id="last" onkeyup="validate();"/></td>
-            <td><div id="errlast"></div></td>
+            <td><input type="text" id="last" onkeyup="validate();"/></td>
+            <td><div id="errLast"></div></td>
 
         </tr>
         <tr>
             <td>email;</td>
             <td><input type="text" id="email" onkeyup="validate();"/></td>
-            <td><div id="erremail"></div></td>
+            <td><div id="errEmail"></div></td>
 
         </tr>
         <tr>
             <td>user id;</td>
-            <td><input type="text" id="user id" onkeyup="validate();"/></td>
-            <td><div id="erruserid"></div></td>
+            <td><input type="text" id="uid" onkeyup="validate();"/></td>
+            <td><div id="errUid"></div></td>
 
         </tr>
         <tr>
             <td>password;</td>
             <td><input type="text" id="password" onkeyup="validate();"/></td>
-            <td><div id="errpassword"></div></td>
+            <td><div id="errPassword"></div></td>
 
         </tr>
         <tr>
             <td>confirm password;</td>
             <td><input type="text" id="confirm" onkeyup="validate();"/></td>
-            <td><div id="errconfirm"></div></td>
+            <td><div id="errConfirm"></div></td>
 
         </tr>
         <tr>
 
-            <td><input type="button" id="create"  value ="create" onclick="validate();finalValidate"/></td>
-            <td><div id="errfinal"></div></td>
+            <td><input type="button" id="create"  value ="Create" onclick="validate(); finalValidate();"/></td>
+            <td><div id="errFinal"></div></td>
 
         </tr>
 
