@@ -4,9 +4,27 @@
     <meta charset="utf-8" />
     <title>C0743317</title>
     <link href="css/default.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        function addNumbers(j) {
+            var sum = 0;
+            for (i = 0; i < j; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+
+    </script>
+
 </head>
 <body>
-    <div>Content goes here!</div>
-    <script src="js/main.js"></script>
+    
+      <div> Content</div>
+      <script src="js/main.js"></script>
+    <script>
+        var inputnumber = prompt("State starting number");
+        document.write(addNumbers(inputnumber));
+
+    </script>
 </body>
 </html>
